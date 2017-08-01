@@ -60,4 +60,16 @@ public class ScrabbleTest {
         Integer expected = 33;
         assertEquals(expected, testScrabble.calculateScore("adbfkjq"));
     }
+    @Test
+    public void calculateScore_returnsScoreForAllScoreLettersAndSpaces_33() throws Exception {
+        Scrabble testScrabble = new Scrabble();
+        Integer expected = 33;
+        assertEquals(expected, testScrabble.calculateScore("adbf kjq"));
+    }
+    @Test
+    public void calculateScore_returnsScoreForCapitals_33() throws Exception {
+        Scrabble testScrabble = new Scrabble();
+        Integer expected = 33;
+        assertEquals(expected, testScrabble.calculateScore("Adbf kjq"));
+    }
 }

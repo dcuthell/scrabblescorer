@@ -19,7 +19,6 @@ public class Scrabble {
         for (int i = 0; i < ones.length; i++) {
             scoreValues.put(ones[i], 1);
         }
-
         char twos[] = {'d', 'g'};
         for (int j = 0; j < twos.length; j++) {
             scoreValues.put(twos[j], 2);
@@ -32,9 +31,7 @@ public class Scrabble {
         for (int l = 0; l < fours.length; l++) {
             scoreValues.put(fours[l], 4);
         }
-
         scoreValues.put('k', 5);
-
         char eights[] = {'j', 'x'};
         for (int l = 0; l < eights.length; l++) {
             scoreValues.put(eights[l], 8);
@@ -43,11 +40,12 @@ public class Scrabble {
         for (int l = 0; l < tens.length; l++) {
             scoreValues.put(tens[l], 10);
         }
+        scoreValues.put(' ', 0);
     }
 
     public Integer calculateScore(String input) {
-
-        char inputArray[] = input.toCharArray();
+        String stringInput = input.toLowerCase();
+        char inputArray[] = stringInput.toCharArray();
         int returnValue = 0;
         for (int i = 0; i < inputArray.length; i++) {
 
