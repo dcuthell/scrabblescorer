@@ -44,11 +44,11 @@ public class Scrabble {
     }
 
     public Integer calculateScore(String input) {
-        String stringInput = input.toLowerCase();
+        String stringInput = input.toLowerCase().replaceAll("[^a-z]+", "");
+
         char inputArray[] = stringInput.toCharArray();
         int returnValue = 0;
         for (int i = 0; i < inputArray.length; i++) {
-
             returnValue += scoreValues.get(inputArray[i]);
         }
         return returnValue;
