@@ -10,22 +10,30 @@ import java.io.InputStreamReader;
  */
 public class Main {
     public static void main(String[] args) {
-
-        Scrabble testing = new Scrabble();
-
-
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please enter a scrabble word!");
+        Scrabble testing = new Scrabble();
+        boolean programRunning = true;
 
-        try {
-            String inputted = bufferedReader.readLine();
+        while (programRunning) {
+            String navChoice = "";
 
-            Integer output = testing.calculateScore(inputted);
-            System.out.println(output);
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
+            try {
+                System.out.println("Please enter a scrabble word!");
+                String inputted = bufferedReader.readLine();
+
+                Integer output = testing.calculateScore(inputted);
+                System.out.println(output);
+                System.out.println("Go again? Hit 'y' to continue");
+                navChoice = bufferedReader.readLine();
+                if (navChoice.equals("y") || navChoice.equals("Y")) {
+                    programRunning = true;
+                } else {
+                    System.out.println("Goodbye!");
+                    programRunning = false;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
